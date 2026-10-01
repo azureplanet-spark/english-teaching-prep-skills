@@ -20,7 +20,7 @@ flowchart TD
     subgraph "Phase 1: 教師需求與資源輸入"
         A1["👩‍🏫 教師提供教材 (PDF / HTML / 歌詞 / 課本原文)"]
         A2["📐 指定架構 (如：一課一頁、CEFR 分級、海軍藍色調)"]
-        A3["🔒 指定課堂通行密碼 (如：SFSHENG2026) 與 Cloudflare 授權"]
+        A3["🔒 指定課堂通行密碼 (如：自訂通行碼) 與 Cloudflare 授權"]
     end
 
     subgraph "Phase 2: AI 教材解析與前端開發"
@@ -69,7 +69,7 @@ flowchart TD
    • 主題色系（推薦海軍藍 Deep Navy `#0B132B` 搭配琥珀金、天藍或紫羅蘭點綴）
    • 是否需要教師形象圖片（若無原創授權圖片，建議採用極簡幾何徽章風格，不放 AI 生成頭像）
 5. 🔒 【課堂密碼防護需求】：
-   • 是否對特定教材（如歌曲影音）設定校園限定通行密碼？（例如：SFSHENG2026）
+   • 是否對特定教材（如歌曲影音）設定校園限定通行密碼？（例如：自訂課堂密碼）
 6. 🚀 【Cloudflare Pages 自動部署授權】：
    • Account ID（32 位英數代碼）
    • API Token（具備 Cloudflare Pages: Edit 權限）
@@ -119,7 +119,7 @@ flowchart TD
 
 ### 3. 校園課堂通行密碼防護鎖 (Classroom Password Gate)
 若特定內容（如流行音樂影音學習單）需避免公開傳播以強化合規性，應內嵌前端通行密碼機制：
-- 預設通行碼（如 `SFSHENG2026`）。
+- 預設通行碼（如：自訂課堂通行密碼）。
 - 未解鎖前：`body` 加上 `overflow-hidden`，全螢幕高斯模糊（`backdrop-blur-xl`）遮罩覆蓋。
 - 輸入正確密碼：寫入 `sessionStorage.setItem('sfsh_song_auth', 'true')`，同瀏覽器分頁切換或刷新時免重複輸入。
 - 支援眼睛圖示切換明文/密文，並附帶一鍵「回到總覽首頁」連結。
