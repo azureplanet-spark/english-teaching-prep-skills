@@ -16,6 +16,7 @@
 
 | Skill 名稱 | 版本 | 核心功能 | 適用對象 | 快速路徑 |
 | :--- | :--- | :--- | :--- | :--- |
+| **Educational Resource Hub Builder** | `v1.0.0` | 打造教師專屬教學資源整合總覽 Hub 與互動教材網站（含一課一頁獨立架構、雙向著作權保護、課堂通行密碼鎖、POSIX Zip 打包與 Cloudflare Pages 全自動增量部署及驗證） | 英語教師、教學設計師、跨學科教師 | [`skills/educational-resource-hub-builder/`](skills/educational-resource-hub-builder/SKILL.md) |
 | **Universal English Song Worksheet Pro** | `v3.0.0` | 打造通用進階版「英語歌曲互動網頁學習單」（支援自訂機構、CEFR A1~B2 四級適配、5/10 題三種題型、YouTube / 本機 MP3 雙播放、4 級動態遊戲回饋與 PNG 成果小卡導出） | 國小高年級至成人、CEFR A1~B2 | [`skills/universal-english-song-worksheet/`](skills/universal-english-song-worksheet/SKILL.md) |
 
 ---
