@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{PAGE_TITLE}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600;8..60,700&family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#F3F5FA;
+    --card-bg:#FFFFFF;
+    --card-border:#DFE4F0;
+    --ink:#1C2333;
+    --ink-soft:#5B6577;
+    --translation:#78829A;
+    --accent:#3E5C9A;
+    --divider:#E3E7F2;
+    --chip-bg:#EEF1FB;
+    --chip-border:#CBD4EA;
+    --vocab-bg:#FBDD86;
+    --vocab-text:#3A2C05;
+    --vocab-border:#E0B94B;
+    --phrase-bg:#E6DEFB;
+    --phrase-text:#2D2545;
+    --phrase-border:#8F7FD1;
+    --pattern-bg:#C7ECD8;
+    --pattern-text:#173D28;
+    --pattern-border:#4E9E71;
+    --insight-bg:#BFE3F7;
+    --insight-text:#0B3A56;
+    --insight-border:#5FA8CE;
+    --legend-bg:#FFFFFF;
+    --pop-bg:#20263A;
+    --pop-text:#F1F3F9;
+    --pop-border:#3A4260;
+    --shadow: 0 1px 2px rgba(28,35,51,0.04), 0 8px 24px rgba(28,35,51,0.05);
+  }
+  @media (prefers-color-scheme: dark){
+    :root:not([data-theme="light"]){
+      --bg:#12151D;
+      --card-bg:#1B202B;
+      --card-border:#2B3244;
+      --ink:#EAEDF5;
+      --ink-soft:#A6AEC2;
+      --translation:#8891A8;
+      --accent:#93AAF0;
+      --divider:#2B3244;
+      --chip-bg:#232A3D;
+      --chip-border:#3A4460;
+      --vocab-bg:#4A3A12;
+      --vocab-text:#F6D98A;
+      --vocab-border:#7A5E1E;
+      --phrase-bg:#2E2748;
+      --phrase-text:#D9CFF7;
+      --phrase-border:#9484D9;
+      --pattern-bg:#183826;
+      --pattern-text:#9EE3BC;
+      --pattern-border:#3F8C63;
+      --insight-bg:#173347;
+      --insight-text:#9AD4F5;
+      --insight-border:#3E7CA0;
+      --legend-bg:#1B202B;
+      --pop-bg:#F1F3F9;
+      --pop-text:#1C2333;
+      --pop-border:#D6DAE6;
+    }
+  }
+  :root[data-theme="dark"]{
+    --bg:#12151D;
+    --card-bg:#1B202B;
+    --card-border:#2B3244;
+    --ink:#EAEDF5;
+    --ink-soft:#A6AEC2;
+    --translation:#8891A8;
+    --accent:#93AAF0;
+    --divider:#2B3244;
+    --chip-bg:#232A3D;
+    --chip-border:#3A4460;
+    --vocab-bg:#4A3A12;
+    --vocab-text:#F6D98A;
+    --vocab-border:#7A5E1E;
+    --phrase-bg:#2E2748;
+    --phrase-text:#D9CFF7;
+    --phrase-border:#9484D9;
+    --pattern-bg:#183826;
+    --pattern-text:#9EE3BC;
+    --pattern-border:#3F8C63;
+    --insight-bg:#173347;
+    --insight-text:#9AD4F5;
+    --insight-border:#3E7CA0;
+    --legend-bg:#1B202B;
+    --pop-bg:#F1F3F9;
+    --pop-text:#1C2333;
+    --pop-border:#D6DAE6;
+  }
+
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Source Serif 4","Noto Sans TC",serif;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{
+    max-width:880px;
+    margin:0 auto;
+    padding:40px 20px 80px;
+  }
+
+  header.page-head{ margin-bottom:28px; }
+  .eyebrow{
+    font-family:"Noto Sans TC",sans-serif;
+    font-size:12.5px; font-weight:600; letter-spacing:.14em;
+    text-transform:uppercase; color:var(--accent); margin-bottom:8px;
+  }
+  h1{ font-size:28px; line-height:1.3; font-weight:700; margin:0 0 10px; text-wrap:balance; }
+  .page-sub{
+    font-family:"Noto Sans TC",sans-serif; font-size:14.5px; color:var(--ink-soft);
+    line-height:1.8; max-width:none;
+  }
+
+  .legend{
+    background:var(--legend-bg); border:1px solid var(--card-border); border-radius:14px;
+    padding:16px 20px; margin:24px 0 40px; box-shadow:var(--shadow);
+    font-family:"Noto Sans TC",sans-serif;
+  }
+  .legend-title{ font-size:12.5px; font-weight:600; letter-spacing:.08em; color:var(--ink-soft); margin-bottom:10px; }
+  .legend-row{ display:flex; flex-direction:column; gap:8px; }
+  .legend-item{ display:flex; align-items:flex-start; gap:8px; font-size:13.5px; color:var(--ink-soft); line-height:1.6; }
+  .swatch{ display:inline-block; width:15px;height:15px; border-radius:4px; flex:none; margin-top:2px; }
+  .swatch.vocab{background:var(--vocab-bg); border:1px solid var(--vocab-border);}
+  .swatch.phrase{background:var(--phrase-bg); border:1px dashed var(--phrase-border);}
+  .swatch.pattern{background:var(--pattern-bg); border:1px solid var(--pattern-border);}
+  .swatch.insight{background:var(--insight-bg); border:1px solid var(--insight-border);}
+  .legend-hint{ font-size:12.5px; color:var(--ink-soft); margin-top:10px; padding-top:10px; border-top:1px dashed var(--divider); }
+
+  section.lesson{ margin-bottom:56px; }
+  .lesson-banner{
+    display:flex; flex-wrap:wrap; align-items:baseline; justify-content:space-between;
+    gap:10px 16px; padding-bottom:12px; border-bottom:2px solid var(--accent); margin-bottom:16px;
+  }
+  .lesson-title{ font-family:"Noto Sans TC",sans-serif; font-size:20px; font-weight:700; color:var(--ink); letter-spacing:.01em; }
+  .lesson-title .num{ color:var(--accent); margin-right:8px; }
+  .lesson-en-title{ font-style:italic; font-weight:500; color:var(--ink-soft); font-size:16px; }
+
+  .grammar-note{
+    font-family:"Noto Sans TC",sans-serif; font-size:13px; color:var(--ink-soft);
+    line-height:1.85; margin-bottom:22px; background:var(--chip-bg); border:1px solid var(--chip-border);
+    border-radius:12px; padding:12px 16px;
+  }
+  .grammar-note b{ color:var(--ink); }
+
+  .p-card{
+    background:var(--card-bg); border:1px solid var(--card-border); border-radius:16px;
+    padding:22px 26px; margin-bottom:16px; box-shadow:var(--shadow);
+  }
+  .p-num{ font-family:"Noto Sans TC",sans-serif; font-size:11.5px; font-weight:600; letter-spacing:.1em; color:var(--ink-soft); margin-bottom:10px; }
+  .en-text{ font-size:17px; line-height:1.9; color:var(--ink); }
+  .divider{ border:none; border-top:1px solid var(--divider); margin:16px 0; }
+  .zh-text{ font-family:"Noto Sans TC",sans-serif; font-size:14.5px; line-height:1.95; color:var(--translation); }
+
+  .hl{ padding:1px 5px; border-radius:5px; cursor:pointer; }
+  .hl-vocab{ background:var(--vocab-bg); color:var(--vocab-text); }
+  .hl-phrase{ background:var(--phrase-bg); color:var(--phrase-text); border-bottom:2px dashed var(--phrase-border); }
+  .hl-pattern{ background:var(--pattern-bg); color:var(--pattern-text); }
+  .hl-insight{ background:var(--insight-bg); color:var(--insight-text); }
+  .hl:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+
+  .note-pop{
+    position:absolute; z-index:80; max-width:340px;
+    background:var(--pop-bg); color:var(--pop-text); border:1px solid var(--pop-border);
+    border-radius:10px; padding:11px 14px; font-family:"Noto Sans TC",sans-serif;
+    font-size:13px; line-height:1.8; box-shadow:0 12px 32px rgba(10,12,20,.28);
+    opacity:0; transform:translateY(-4px); pointer-events:none;
+    transition:opacity .12s ease, transform .12s ease;
+  }
+  .note-pop.show{ opacity:1; transform:translateY(0); pointer-events:auto; }
+
+  footer.page-foot{
+    font-family:"Noto Sans TC",sans-serif; font-size:12.5px; color:var(--ink-soft);
+    border-top:1px solid var(--divider); padding-top:18px; margin-top:36px; line-height:1.9;
+  }
+  .page-foot p{ margin:0 0 8px; }
+  .page-foot p:last-child{ margin-bottom:0; }
+  .foot-disclaimer{ font-size:11.5px; opacity:.85; }
+
+  @media (max-width:600px){
+    h1{font-size:23px;}
+    .en-text{font-size:16px;}
+    .p-card{padding:18px 18px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="page-head">
+    <div class="eyebrow">{{BOOK_LABEL}} 課文重點整理</div>
+    <h1>{{PAGE_TITLE}}</h1>
+    <p class="page-sub">回到課文原文中標出真正值得精讀的重點：句型文法（分詞構句、關係子句省略、核心句型公式）、片語搭配，以及主旨、伏筆、推論依據等閱讀理解重點——不是逐字翻譯單字。點一下標示文字會跳出說明；再點一次或點空白處關閉。</p>
+  </header>
+
+  <div class="legend">
+    <div class="legend-title">標示說明</div>
+    <div class="legend-row">
+      <span class="legend-item"><span class="swatch vocab"></span>單字重點——核心單字或高頻字彙</span>
+      <span class="legend-item"><span class="swatch phrase"></span>片語慣用語——常考片語搭配</span>
+      <span class="legend-item"><span class="swatch pattern"></span>文法句型——句型公式、分詞構句、關係子句省略等文法規則</span>
+      <span class="legend-item"><span class="swatch insight"></span>閱讀理解重點——主旨、伏筆、推論依據等文意層面的重點</span>
+    </div>
+    <div class="legend-hint">💡 標示文字可點擊（或用 Tab 鍵＋Enter），會跳出該重點的意思、用法或文法規則說明。</div>
+  </div>
+
+  <!-- ============ REPEAT THIS <section> ONCE PER LESSON (3 per page) ============ -->
+  <section class="lesson">
+    <div class="lesson-banner">
+      <div class="lesson-title"><span class="num">L{{LESSON_NUMBER}}</span>{{LESSON_TITLE_ZH}}</div>
+      <div class="lesson-en-title">{{LESSON_TITLE_EN}}</div>
+    </div>
+    <div class="grammar-note">
+      {{GRAMMAR_NOTE_HTML}}
+    </div>
+
+    <!-- ===== REPEAT THIS <div class="p-card"> ONCE PER PARAGRAPH, numbered from 1 ===== -->
+    <div class="p-card">
+      <div class="p-num">PARAGRAPH {{PARAGRAPH_NUMBER}}</div>
+      <div class="en-text">{{EN_PARAGRAPH_HTML}}</div>
+      <hr class="divider">
+      <div class="zh-text">{{ZH_TRANSLATION}}</div>
+    </div>
+  </section>
+
+  <footer class="page-foot">
+    <p class="foot-disclaimer">本頁僅供課堂教學與學生自學參考之用，不作任何商業用途。文章內容整理改寫自<b>{{TEXTBOOK_NAME}}</b>，原文版權仍歸原出版社與作者所有。頁面中的標示重點，係<b>{{AUTHOR_CREDIT}}</b>參考歷屆綜合測驗、文法選擇等大考出題方向，並依個人教學經驗篩選、彙整而成，僅為教學輔助說明，不代表原出版社或原作者之立場。</p>
+  </footer>
+
+</div>
+
+<div class="note-pop" id="notePop" role="tooltip"></div>
+<script>
+(function(){
+  var pop = document.getElementById('notePop');
+  var current = null;
+
+  function hide(){
+    pop.classList.remove('show');
+    if(current){ current.setAttribute('aria-expanded','false'); }
+    current = null;
+  }
+
+  function show(el){
+    var note = el.getAttribute('data-note');
+    if(!note){ return; }
+    var body = document.createElement('div');
+    body.textContent = note;
+    pop.innerHTML = '';
+    var hint = document.createElement('div');
+    hint.style.fontSize = '11px';
+    hint.style.opacity = '.6';
+    hint.style.marginBottom = '4px';
+    hint.textContent = '再點一次可關閉';
+    pop.appendChild(hint);
+    pop.appendChild(body);
+
+    var popW = Math.min(340, window.innerWidth - 32);
+    pop.style.width = popW + 'px';
+    pop.style.left = '0px';
+    pop.style.top = '0px';
+    pop.classList.add('show');
+
+    var r = el.getBoundingClientRect();
+    var top = r.bottom + window.scrollY + 8;
+    var left = r.left + window.scrollX;
+    if(left + popW > window.scrollX + window.innerWidth - 16){
+      left = window.scrollX + window.innerWidth - popW - 16;
+    }
+    if(left < window.scrollX + 16){ left = window.scrollX + 16; }
+    pop.style.left = left + 'px';
+    pop.style.top = top + 'px';
+
+    el.setAttribute('aria-expanded','true');
+    current = el;
+  }
+
+  document.querySelectorAll('.hl').forEach(function(el){
+    el.setAttribute('tabindex','0');
+    el.setAttribute('role','button');
+    el.setAttribute('aria-expanded','false');
+    el.addEventListener('click', function(e){
+      e.stopPropagation();
+      if(current === el){ hide(); } else { show(el); }
+    });
+    el.addEventListener('keydown', function(e){
+      if(e.key === 'Enter' || e.key === ' '){
+        e.preventDefault();
+        if(current === el){ hide(); } else { show(el); }
+      } else if(e.key === 'Escape'){
+        hide();
+      }
+    });
+  });
+  pop.addEventListener('click', function(e){ e.stopPropagation(); });
+  document.addEventListener('click', hide);
+  window.addEventListener('scroll', hide, {passive:true});
+  window.addEventListener('resize', hide);
+})();
+</script>
+
+</body>
+</html>

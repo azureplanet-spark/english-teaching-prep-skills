@@ -18,6 +18,7 @@
 | :--- | :--- | :--- | :--- | :--- |
 | **Educational Resource Hub Builder** | `v1.0.0` | 打造教師專屬教學資源整合總覽 Hub 與互動教材網站（含一課一頁獨立架構、雙向著作權保護、課堂通行密碼鎖、POSIX Zip 打包與 Cloudflare Pages 全自動增量部署及驗證） | 英語教師、教學設計師、跨學科教師 | [`skills/educational-resource-hub-builder/`](skills/educational-resource-hub-builder/SKILL.md) |
 | **Universal English Song Worksheet Pro** | `v3.0.0` | 打造通用進階版「英語歌曲互動網頁學習單」（支援自訂機構、CEFR A1~B2 四級適配、5/10 題三種題型、YouTube / 本機 MP3 雙播放、4 級動態遊戲回饋與 PNG 成果小卡導出） | 國小高年級至成人、CEFR A1~B2 | [`skills/universal-english-song-worksheet/`](skills/universal-english-song-worksheet/SKILL.md) |
+| **Annotated Bilingual Reading Webpage Builder** | `v1.0.0` | 打造高中英語「課文重點標註網頁」（每 3 課一頁：課文原文＋全新繁體中文翻譯＋點擊展開的單字／片語／文法句型／閱讀理解四類標示，每段最多 5 個重點；附固定淺色／深色模板與頁尾免責聲明，內容不含任何課本原文） | 高中英語教師、教學設計師 | [`skills/annotated-bilingual-reading-webpage-builder/`](skills/annotated-bilingual-reading-webpage-builder/SKILL.md) |
 
 ---
 
