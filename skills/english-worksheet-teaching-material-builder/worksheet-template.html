@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{{WORKSHEET_TITLE}}</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  @page { size: A4; margin: 10mm 12mm; }
+  *{ box-sizing:border-box; }
+  body{ margin:0; background:#e9e9ee; color:#111;
+        font-family:"Noto Serif TC","Noto Sans TC",serif; font-size:12px; line-height:1.55; }
+  /* One .page = one lesson = exactly two printed A4 pages (Q4 carries class "pb" = page-break-before). */
+  .page{ width:186mm; margin:12px auto; background:#fff; break-after:page; page-break-after:always; }
+  .page:last-of-type{ break-after:auto; page-break-after:auto; }
+
+  .banner-bar{ background:#161616; color:#fff; padding:7px 16px; border-radius:5px;
+               font-family:"Noto Sans TC",sans-serif; font-weight:900; font-size:15px; letter-spacing:.14em; }
+  .subtitle-line{ font-style:italic; font-size:11.5px; color:#444; margin:5px 2px 7px; letter-spacing:.03em; }
+  .score-bar{ display:flex; gap:0; border:1.5px solid #222; border-radius:4px; margin-bottom:9px;
+              font-family:"Noto Sans TC",sans-serif; font-size:11.5px; }
+  .score-bar span{ flex:1; padding:4px 9px; }
+  .score-bar span + span{ border-left:1.5px solid #222; }
+
+  .mission-title{ display:flex; justify-content:space-between; align-items:baseline;
+                  font-family:"Noto Sans TC",sans-serif; font-weight:900; font-size:13px; letter-spacing:.06em;
+                  border-bottom:2px solid #111; padding-bottom:3px; margin:10px 0 7px; }
+  .mission-title small{ font-weight:400; font-size:10.5px; letter-spacing:0; color:#333; }
+  .pill{ display:inline-block; background:#111; color:#fff; border-radius:999px; padding:0 9px;
+         font-family:"Noto Sans TC",sans-serif; font-weight:700; font-size:9.5px; letter-spacing:.03em; }
+
+  .word-bank{ border:1.5px dashed #555; border-radius:6px; padding:5px 11px; margin-bottom:8px; font-size:12px; }
+  .word-bank b{ font-family:"Noto Sans TC",sans-serif; margin-right:8px; letter-spacing:.04em; }
+  .word-bank i{ font-style:italic; }
+  .grid{ display:grid; grid-template-columns:1fr 1fr; gap:8px; }
+  .cell{ border:1.5px solid #333; border-radius:7px; padding:7px 11px 8px; }
+  .cell h4{ margin:0 0 3px; font-family:"Noto Sans TC",sans-serif; font-weight:900; font-size:11.5px; letter-spacing:.05em; }
+  .cell ul{ margin:0; padding-left:15px; }
+  .cell li{ margin:0 0 2px; font-size:11.5px; }
+  .blank{ display:inline-block; min-width:62px; border-bottom:1px solid #111; }
+  .answer-note{ font-family:"Noto Sans TC",sans-serif; font-size:9.5px; color:#555; margin:4px 2px 0; }
+
+  .q{ border:1.5px solid #333; border-radius:7px; padding:6px 12px 7px; margin:0 0 9px; }
+  .q.pb{ break-before:page; page-break-before:always; }
+  .q-top{ display:flex; align-items:center; gap:7px; margin-bottom:3px; font-family:"Noto Sans TC",sans-serif; font-weight:700; }
+  .q-stem{ font-weight:700; font-size:12.5px; margin-bottom:3px; }
+  .opts{ display:grid; grid-template-columns:1fr 1fr; grid-template-rows:auto auto; grid-auto-flow:column; gap:0 18px; font-size:12px; }  /* A,B left column; C,D right column */
+  .opts.one-col{ grid-template-columns:1fr; grid-template-rows:none; grid-auto-flow:row; }
+
+  .m3-frame{ border:1.5px dashed #555; border-radius:6px; padding:5px 12px; margin-bottom:7px; font-weight:700; font-size:14px; }
+  .m3-demo{ font-size:11.5px; margin-bottom:7px; }
+  .m3-demo b, .m3-label{ font-family:"Noto Sans TC",sans-serif; font-weight:700; }
+  .m3-label{ font-size:11.5px; margin:6px 0 2px; }
+  .rule-line{ border-bottom:1px solid #333; height:24px; }
+  .m3-note{ font-family:"Noto Sans TC",sans-serif; font-size:10px; color:#444; margin-top:8px; }
+  @media print{ body{ background:#fff; } .page{ margin:0 auto; } }
+</style>
+</head>
+<body>
+
+<!-- ======= REPEAT THIS <div class="page"> ONCE PER LESSON ======= -->
+<div class="page">
+  <div class="banner-bar">LESSON {{LESSON_NUMBER}}　・　{{LESSON_TITLE_EN_UPPER}}</div>
+  <div class="subtitle-line">Structure Map　•　Reading Practice　•　Sentence Building</div>
+  <div class="score-bar"><span>MISSION 1 (Structure Map) ＿＿＿／40</span><span>MISSION 2 (Reading Practice) ＿＿＿／60</span><span>TOTAL SCORE ＿＿＿／100</span></div>
+
+  <!-- ===== PRINTED PAGE 1 ===== -->
+  <div class="mission-title"><span>📘 MISSION 1　・　READING STRUCTURE MAP</span><small>每格10分，共40分</small></div>
+  <div class="word-bank">📄 <b>WORD BANK</b> {{WORD_BANK_HTML}}</div>
+  <div class="grid">
+    <div class="cell"><h4>① {{CELL1_TITLE}}</h4><ul>{{CELL1_BULLETS}}</ul></div>
+    <div class="cell"><h4>② {{CELL2_TITLE}}</h4><ul>{{CELL2_BULLETS}}</ul></div>
+    <div class="cell"><h4>③ {{CELL3_TITLE}}</h4><ul>{{CELL3_BULLETS}}</ul></div>
+    <div class="cell"><h4>④ {{CELL4_TITLE}}</h4><ul>{{CELL4_BULLETS}}</ul></div>
+  </div>
+  <div class="answer-note">答案：{{M1_ANSWERS}}　｜　干擾項：{{DISTRACTOR_NOTE}}</div>
+
+  <div class="mission-title"><span>🔍 MISSION 2　・　READING PRACTICE</span><small>每題10分，共60分</small></div>
+
+  <div class="q"><div class="q-top"><span>( )</span><span class="pill">Q1 Vocabulary</span></div>
+    <div class="q-stem">{{Q1_STEM}}</div>
+    <div class="opts"><span>(A) {{Q1_A}}</span><span>(B) {{Q1_B}}</span><span>(C) {{Q1_C}}</span><span>(D) {{Q1_D}}</span></div></div>
+
+  <div class="q"><div class="q-top"><span>( )</span><span class="pill">Q2 Vocabulary</span></div>
+    <div class="q-stem">{{Q2_STEM}}</div>
+    <div class="opts"><span>(A) {{Q2_A}}</span><span>(B) {{Q2_B}}</span><span>(C) {{Q2_C}}</span><span>(D) {{Q2_D}}</span></div></div>
+
+  <div class="q"><div class="q-top"><span>( )</span><span class="pill">Q3 Big Idea</span></div>
+    <div class="q-stem">{{Q3_STEM}}</div>
+    <div class="opts one-col"><span>(A) {{Q3_A}}</span><span>(B) {{Q3_B}}</span><span>(C) {{Q3_C}}</span><span>(D) {{Q3_D}}</span></div></div>
+
+  <!-- ===== PRINTED PAGE 2 starts here: Q4 carries class "pb" ===== -->
+  <div class="q pb"><div class="q-top"><span>( )</span><span class="pill">Q4 Detail</span></div>
+    <div class="q-stem">{{Q4_STEM}}</div>
+    <div class="opts one-col"><span>(A) {{Q4_A}}</span><span>(B) {{Q4_B}}</span><span>(C) {{Q4_C}}</span><span>(D) {{Q4_D}}</span></div></div>
+
+  <div class="q"><div class="q-top"><span>( )</span><span class="pill">Q5 Inference</span></div>
+    <div class="q-stem">{{Q5_STEM}}</div>
+    <div class="opts one-col"><span>(A) {{Q5_A}}</span><span>(B) {{Q5_B}}</span><span>(C) {{Q5_C}}</span><span>(D) {{Q5_D}}</span></div></div>
+
+  <div class="q"><div class="q-top"><span>( )</span><span class="pill">Q6 Grammar</span></div>
+    <div class="q-stem">{{Q6_STEM}}</div>
+    <div class="opts one-col"><span>(A) {{Q6_A}}</span><span>(B) {{Q6_B}}</span><span>(C) {{Q6_C}}</span><span>(D) {{Q6_D}}</span></div></div>
+
+  <div class="answer-note">答案：Q1 {{A1}}　Q2 {{A2}}　Q3 {{A3}}　Q4 {{A4}}　Q5 {{A5}}　Q6 {{A6}}</div>
+
+  <div class="mission-title"><span>🖊️ MISSION 3　・　SENTENCE BUILDING <span class="pill">不計分</span></span><small></small></div>
+  <div class="m3-frame">{{M3_FRAME}}</div>
+  <div class="m3-demo"><b>範例（盡量使用課本單字片語）：</b>{{M3_DEMO}}</div>
+  <div class="m3-label">① 我的仿寫句（先自己寫，不用AI）</div>
+  <div class="rule-line"></div><div class="rule-line"></div>
+  <div class="m3-label">② AI 修正後的正確句</div>
+  <div class="rule-line"></div><div class="rule-line"></div>
+  <div class="m3-note">先人後機：先寫①，再請免費版AI檢查潤飾成②。請用不同顏色的筆，把②和①不一樣的地方標示出來，看看AI幫你修正了什麼。</div>
+</div>
+<!-- ======= END OF REPEATABLE LESSON BLOCK ======= -->
+
+</body>
+</html>
